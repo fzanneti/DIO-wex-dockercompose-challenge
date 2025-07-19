@@ -4,7 +4,6 @@ WORKDIR /app
 
 # Copia apenas a pasta do JarbasBot
 COPY . .
-WORKDIR /app/Bot/JarbasBot
 
 # Restaura e publica
 RUN dotnet restore
