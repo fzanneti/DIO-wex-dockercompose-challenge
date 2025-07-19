@@ -2,14 +2,17 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copia tudo
-COPY . .
-
-# Restaura e publica
+# Copia o csproj e restaura
+COPY JarbasBot.csproj ./
 RUN dotnet restore
+
+# Copia o restante dos arquivos
+COPY . ./
+
+# Publica
 RUN dotnet publish -c Release -o /out
 
-# Etapa 2 - Runtime com .NET 8.0
+# Etapa 2 - Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /out .
