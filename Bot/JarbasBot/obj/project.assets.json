@@ -482,19 +482,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\fzann\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\project\\wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
+      "projectUniqueName": "C:\\Users\\fzann\\OneDrive\\Documentos\\Projects\\wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
       "projectName": "JarbasBot",
-      "projectPath": "C:\\Users\\user\\Documents\\project\\wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\project\\wex-dockercompose-challenge\\Bot\\JarbasBot\\obj\\",
+      "projectPath": "C:\\Users\\fzann\\OneDrive\\Documentos\\Projects\\wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
+      "packagesPath": "C:\\Users\\fzann\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fzann\\OneDrive\\Documentos\\Projects\\wex-dockercompose-challenge\\Bot\\JarbasBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\fzann\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
