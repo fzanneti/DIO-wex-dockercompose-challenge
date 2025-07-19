@@ -5,9 +5,6 @@ WORKDIR /app
 # Copia tudo
 COPY . .
 
-# Entra na pasta JarbasBot
-WORKDIR /app/Bot/JarbasBot
-
 # Restaura e publica
 RUN dotnet restore
 RUN dotnet publish -c Release -o /out
