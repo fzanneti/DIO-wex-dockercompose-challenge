@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia apenas a pasta do JarbasBot
-COPY ./DesafioWEXDockerCompose/JarbasBot ./JarbasBot
+COPY ./Bot/JarbasBot ./JarbasBot
 WORKDIR /app/JarbasBot
 
 # Restaura e publica
