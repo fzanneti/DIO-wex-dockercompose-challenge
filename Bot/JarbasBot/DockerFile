@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia apenas a pasta do JarbasBot
-COPY ./Bot/JarbasBot ./JarbasBot
-WORKDIR /app/JarbasBot
+COPY . .
+WORKDIR /app/Bot/JarbasBot
 
 # Restaura e publica
 RUN dotnet restore
