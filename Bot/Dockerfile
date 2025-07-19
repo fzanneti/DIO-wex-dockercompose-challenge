@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia tudo
-COPY ./Bot/JarbasBot ./JarbasBot
+COPY . .
 
 # Entra na pasta JarbasBot
 WORKDIR /app/Bot/JarbasBot
@@ -15,7 +15,7 @@ RUN dotnet publish -c Release -o /out
 # Etapa 2 - Runtime com .NET 8.0
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /out .
+COPY --from=build /app/Bot/JarbasBot/out .
 
 ENV ASPNETCORE_URLS=http://+:80
 
