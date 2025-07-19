@@ -8,21 +8,21 @@
     ".NETCoreApp,Version=v8.0": {
       "JarbasBot/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.OpenApi": "8.0.16",
+          "Microsoft.AspNetCore.OpenApi": "8.0.18",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
           "JarbasBot.dll": {}
         }
       },
-      "Microsoft.AspNetCore.OpenApi/8.0.16": {
+      "Microsoft.AspNetCore.OpenApi/8.0.18": {
         "dependencies": {
           "Microsoft.OpenApi": "1.6.14"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll": {
-            "assemblyVersion": "8.0.16.0",
-            "fileVersion": "8.0.1625.21611"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31706"
           }
         }
       },
@@ -81,12 +81,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.OpenApi/8.0.16": {
+    "Microsoft.AspNetCore.OpenApi/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jeZBYi62BKGRZXEkXAr9hj1L6u71HRKE7EPaZBouF1xmKdQIX7GO5oSRLTQLQmmST0y/aaI+Mr4OzyyRjmBFog==",
-      "path": "microsoft.aspnetcore.openapi/8.0.16",
-      "hashPath": "microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512"
+      "sha512": "sha512-iHqDbyK66dTL2M32nQ/kqYXGbQFj5bUr0eXJskJMsuPCF4CfJbJCuSnwWKq0m2TrMGuNV01RJLU61S2uvS04+g==",
+      "path": "microsoft.aspnetcore.openapi/8.0.18",
+      "hashPath": "microsoft.aspnetcore.openapi.8.0.18.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
