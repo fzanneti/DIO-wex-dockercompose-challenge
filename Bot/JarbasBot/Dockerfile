@@ -15,8 +15,7 @@ RUN dotnet publish -c Release -o /out
 # Etapa 2 - Runtime com .NET 8.0
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/Bot/JarbasBot/out .
+COPY --from=build /out .
 
 ENV ASPNETCORE_URLS=http://+:80
-
 ENTRYPOINT ["dotnet", "JarbasBot.dll"]
