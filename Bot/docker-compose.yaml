@@ -11,7 +11,7 @@ services:
 
   jarbasbot:
     build:
-      context: ./Bot/JarbasBot
+      context: Bot/JarbasBot
       dockerfile: Dockerfile
     container_name: jarbasbot-api
     ports:
