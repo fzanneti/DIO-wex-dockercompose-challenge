@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia tudo
-COPY . .
+COPY ./Bot/JarbasBot ./JarbasBot
 
 # Entra na pasta JarbasBot
 WORKDIR /app/Bot/JarbasBot
