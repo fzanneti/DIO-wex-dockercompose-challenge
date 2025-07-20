@@ -15,133 +15,125 @@
 
 O **JarbasBot** é um projeto de chatbot que simula uma personalidade extrovertida e direta, utilizando a API da [OpenRouter.ai](https://openrouter.ai) com modelos LLM gratuitos como o `mistralai/mistral-small`, `meta-llama/llama-4-maverick` e outros.
 
-Ele responde via:
-- **API REST** (`/api/chat`)
-- **Interface Web (HTML + JS)** simples para facilitar testes
-
-<img src="https://github.com/fzanneti/wex-dockercompose-challenge/blob/main/Bot/assets/images/Project-Jarbas-Bot.gif" width="800px" />
-
-[→ Acesse o app em funcionamento](https://wex-dockercompose-challenge-production.up.railway.app/)
+Projeto desenvolvido como parte do Desafio WEX / DIO - Docker Compose Challenge, com aprimoramento para aplicação real utilizando C# (.NET 8), integração com IA (OpenRouter), API REST e Frontend customizado.
 
 ---
 
-### 🚀 Tecnologias Utilizadas
+### 📌 Descrição
 
-- [ASP.NET Core 8.0](https://learn.microsoft.com/aspnet/core)
-- [C#](https://learn.microsoft.com/dotnet/csharp/)
-- [Docker & Docker Compose](https://docs.docker.com/)
-- [OpenRouter.ai](https://openrouter.ai) (como alternativa à OpenAI)
-- HTML/CSS/JS puro
+O projeto foi idealizado para demonstrar o uso do Docker Compose, servindo:
 
----
+- Uma aplicação web frontend (HTML/CSS/JS)   
+- Uma API em .NET 8 (C#) que se comunica com o serviço de IA.   
 
-### 🧠 Personalidade do Jarbas
-
-Jarbas é um assistente que responde com bom humor e gírias. Você pode adaptar sua personalidade no código, dentro do serviço `OpenAiService.cs`, no conteúdo do papel `system`.
+Para fins de desafio acadêmico, foi incluído um container **Apache HTTP Server** para servir o frontend localmente.
 
 ---
 
-### 📂 Estrutura do Projeto
+### 🚀 Tecnologias
 
-```
-
-Bot/
-├── docker-compose.yml
-├── html/                     # Interface Web
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
-└── JarbasBot/                # Projeto .NET
-├── Controllers/
-│   └── ChatController.cs
-├── Models/
-│   ├── ChatRequest.cs
-│   └── ChatResponse.cs
-├── Services/
-│   └── OpenAiService.cs
-├── Program.cs
-├── JarbasBot.csproj
-└── Dockerfile
-
-```
+- Docker & Docker Compose    
+- Apache HTTP Server (local)     
+- ASP.NET Core 8 (API JarbasBot)     
+- OpenRouter API (Integração com IA)    
+- HTML / CSS / JS     
 
 ---
 
-### ⚙️ Como Executar com Docker Compose
+## 🐳 Execução Local com Docker Compose
 
-> Certifique-se de ter o [Docker instalado](https://docs.docker.com/get-docker/).
+### Pré-requisitos:
+
+- Docker instalado     
+- Docker Compose instalado    
+
+Arquivo .env configurado com:
 
 ```bash
 
-# Na raiz do projeto
+- OPENAI_API_KEY=sua_chave_openrouter
+
+```
+
+---
+
+### Instruções: 
+
+1. Clone o repositório:
+
+```bash
+
+git clone https://github.com/fzanneti/wex-dockercompose-challenge.git
+cd wex-dockercompose-challenge
+
+```
+
+2. Execute o Docker Compose:
+
+```bash
+
 docker-compose up --build
 
 ```
 
-* A API do Jarbas estará disponível em: `http://localhost:5000/api/chat`
-* A interface web estará acessível em: `http://localhost:8080`
+---
+
+### Serviços Disponíveis
+
+|Serviço	URL|Acesso|
+|---|---|
+|Apache (Frontend)|http://localhost:8080|
+|JarbasBot API|http://localhost:5000/api/chat|
 
 ---
 
-## 🌐 Como Usar
+### ☁️ Deploy em Produção (Railway)
 
-### 🧪 Via Swagger
+Para a produção no Railway, utilizei uma abordagem diferente da proposta original do desafio para garantir uma aplicação funcional hospedada em nuvem:
 
-Acesse: `http://localhost:5000/swagger`
+- O **Frontend (HTML/CSS/JS)** foi incorporado diretamente na aplicação ASP.NET Core, servido a partir da pasta wwwroot.
+- O **Apache** não foi utilizado no deploy do Railway, pois o Railway não suporta múltiplos containers em um único serviço.
 
-### 📦 Via cURL
+
+> Observação: Essa adaptação foi necessária para possibilitar a publicação funcional do projeto em ambiente de produção na nuvem, respeitando as limitações da plataforma Railway.
+
+### URL de Produção
+
+[Acesse] (https://wex-dockercompose-challenge-production.up.railway.app)
+
+---
+
+*** 🔗 Funcionalidades
+
+Envie perguntas pelo frontend e o JarbasBot responde com bom humor, informalidade e integração com IA.
+
+### API RESTful com endpoint:
 
 ```bash
 
-curl -X POST http://localhost:5000/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{"question":"Quem é você?"}'
+POST /api/chat
+{
+    "question": "sua pergunta"
+}
 
 ```
 
-### 🖥️ Via Interface Web
-
-Abra no navegador: `http://localhost:8080`
-
 ---
 
-### 🔐 Variáveis de Ambiente
+### 📁 Estrutura de Pastas
 
-Configure sua chave da OpenRouter no arquivo `.env`:
+```bash
 
-```env
-
-OPENAI_API_KEY=sk-or-xxxxxxxxxxxxxxxxxxxx
+.
+├── Bot
+│   └── JarbasBot          # API em C#
+│       └── wwwroot        # Frontend para produção
+├── html                   # Frontend puro para ser servido pelo Apache
+├── docker-compose.yml     # Define Apache e API para ambiente local
+├── public (opcional)      # Recursos estáticos
+└── README.md
 
 ```
-
-> ⚠️ O arquivo `.env` **não deve ser enviado ao GitHub** — certifique-se de listá-lo no `.gitignore`.
-
----
-
-### 💡 O que esse Dockerfile faz?
-
-| Etapa        | Descrição                                                |
-| ------------ | -------------------------------------------------------- |
-| `build`      | Usa imagem com .NET SDK para compilar o projeto          |
-| `runtime`    | Usa imagem leve com apenas o ASP.NET para rodar o Jarbas |
-| `COPY`       | Move os arquivos compilados da build para o runtime      |
-| `ENTRYPOINT` | Define o comando para iniciar a aplicação .NET           |
-
----
-
-### 🛠️ Melhorias Futuras
-
-* [ ] Autenticação por chave no front
-* [ ] Deploy em nuvem (Render / Railway)
-* [ ] Modo de histórico de conversa
-* [ ] Personalização da personalidade em tempo real
-
----
-
-### 📄 Licença
-
-Este projeto está licenciado sob os termos da **MIT License**.
 
 ---
 
