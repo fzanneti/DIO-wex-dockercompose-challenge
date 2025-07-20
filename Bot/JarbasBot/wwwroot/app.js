@@ -22,7 +22,7 @@ async function falarComJarbas() {
     if (!res.ok) throw new Error("Erro na resposta da API");
 
     const data = await res.json();
-    respostaEl.innerText = data.answer;
+    respostaEl.innerText = marked.parse(data.answer);
   } catch (err) {
     console.error("Erro ao falar com o Jarbas:", err);
     respostaEl.innerText = "Deu ruim... o Jarbas não respondeu 😢";
