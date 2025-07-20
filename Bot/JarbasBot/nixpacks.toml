@@ -1,0 +1,2 @@
+[phases.build]
+cmds = ["echo 'skipping buildpack because Dockerfile will be used'"]
