@@ -10,7 +10,7 @@ async function falarComJarbas() {
   respostaEl.innerText = "Jarbas está pensando...";
 
   const host = window.location.hostname;
-  const apiUrl = `http://${host}:5000/api/chat`;
+  const apiUrl = `http://${host}/api/chat`;
 
   try {
     const res = await fetch(apiUrl, {
