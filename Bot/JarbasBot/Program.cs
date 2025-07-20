@@ -37,6 +37,9 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 // HTTPS é desativado porque estamos rodando via Docker sem certificado
 // app.UseHttpsRedirection(); ❌ (não necessário se usando apenas HTTP)
 
+app.UseDefaultFiles(); // Serve index.html automaticamente
+app.UseStaticFiles();  // Permite servir JS, CSS, etc
+
 app.UseAuthorization();
 app.MapControllers(); // ESSENCIAL para rotas como /api/chat
 app.Run();
