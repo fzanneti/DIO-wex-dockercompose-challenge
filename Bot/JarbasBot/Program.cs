@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using System.Collections.Generic;
 using JarbasBot.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,8 +40,18 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 // HTTPS é desativado porque estamos rodando via Docker sem certificado
 // app.UseHttpsRedirection(); ❌ (não necessário se usando apenas HTTP)
 
-app.UseDefaultFiles(); // Serve index.html automaticamente
-app.UseStaticFiles();  // Permite servir JS, CSS, etc
+app.UseDefaultFiles(new DefaultFilesOptions // Serve index.html automaticamente
+{
+    DefaultFileNames = new List<string> { "index.html" },
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "public"))
+});
+
+app.UseStaticFiles(new StaticFileOptions // Permite servir JS, CSS, etc
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "public"))
+});
 
 app.UseAuthorization();
 app.MapControllers(); // ESSENCIAL para rotas como /api/chat
