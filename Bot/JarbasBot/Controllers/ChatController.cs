@@ -5,7 +5,7 @@ using JarbasBot.Services;
 namespace JarbasBot.Controllers
 {
     [ApiController]
-    [Route("api/chat")]
+    [Route("/")]
     public class ChatController : ControllerBase
     {
         private readonly OpenAiService _openAiService;
