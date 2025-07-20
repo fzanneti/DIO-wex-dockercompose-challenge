@@ -21,6 +21,8 @@ Ele responde via:
 
 <img src="https://github.com/fzanneti/wex-dockercompose-challenge/blob/main/Bot/assets/images/Project-Jarbas-Bot.gif" width="800px" />
 
+[→ Acesse o app em funcionamento](https://wex-dockercompose-challenge-production.up.railway.app/)
+
 ---
 
 ### 🚀 Tecnologias Utilizadas
