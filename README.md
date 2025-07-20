@@ -99,7 +99,7 @@ Para a produção no Railway, utilizei uma abordagem diferente da proposta origi
 
 ### URL de Produção
 
-[Acesse] (https://wex-dockercompose-challenge-production.up.railway.app)
+[Acesse](https://wex-dockercompose-challenge-production.up.railway.app)
 
 ---
 
