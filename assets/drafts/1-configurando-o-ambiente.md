@@ -1,4 +1,6 @@
-# 🧱 Preparar o ambiente Linux (dentro da VM no VirtualBox) para teste
+# WEX - End to End Engineering
+
+## 1 - Preparar o ambiente Linux (dentro da VM no VirtualBox) para teste
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/fzanneti/wex-e2e-csharp)
 ![GitHub forks](https://img.shields.io/github/forks/fzanneti/wex-e2e-csharp?style=social)
@@ -13,7 +15,7 @@
 
 ---
 
-### ✅ 1. Atualizar pacotes
+1. Atualizar pacotes
 
 ```bash
 
@@ -23,7 +25,7 @@ sudo apt update && sudo apt upgrade -y
 
 ---
 
-### ✅ 2. Instalar o .NET SDK 8 (para ASP.NET Core)
+2. Instalar o .NET SDK 8 (para ASP.NET Core)
 
 ```bash
 
@@ -46,7 +48,7 @@ dotnet --info
 
 ```
 
-#### ✔️ Verifique se está instalado:
+**Verifique se está instalado:**
 
 ```bash
 
@@ -56,7 +58,7 @@ dotnet --version
 
 ---
 
-### ✅ 3. Instalar o Docker
+3. Instalar o Docker
 
 ```bash
 
@@ -86,7 +88,7 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 
 ```
 
-### ✔️ Verifique se está funcionando:
+**Verifique se está funcionando:**
 
 ```bash
 
@@ -96,7 +98,7 @@ sudo docker version
 
 ---
 
-## ✅ 4. Instalar o Docker Compose (caso precise usar separadamente)
+4. Instalar o Docker Compose (caso precise usar separadamente)
 
 ```bash
 
@@ -105,7 +107,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
-### ✔️ Verifique:
+**Verifique:**
 
 ```bash
 
@@ -115,7 +117,7 @@ docker-compose --version
 
 ---
 
-## ✅ 5. Instalar o Git
+5. Instalar o Git
 
 ```bash
 
@@ -123,7 +125,7 @@ sudo apt install -y git
 
 ```
 
-#### ✔️ Verifique:
+**Verifique:**
 
 ```bash
 
@@ -133,7 +135,7 @@ git --version
 
 ---
 
-### ✅ 6. Permitir usar Docker sem `sudo` (opcional, mas recomendado)
+6. Permitir usar Docker sem `sudo` (opcional, mas recomendado)
 
 ```bash
 
@@ -144,7 +146,7 @@ newgrp docker
 
 ---
 
-### ✅ 7. Reboot para garantir tudo funcionando:
+7. Reboot para garantir tudo funcionando:
 
 ```bash
 
@@ -154,15 +156,15 @@ sudo reboot
 
 ---
 
-## 🚦 Depois do reboot:
+**Depois do reboot:**
 
-* Testa com: `dotnet --version`
+- Testa com: `dotnet --version`
 * Testa com: `docker run hello-world`
 
 Se tudo funcionar, **estamos prontos pra começar o projeto JarbasBot + Apache** na prática.
 
 ---
 
-##### ✍️ Criado por: Fabio Zanneti - 🎯 Projeto: WEX - End to End Engineering
+##### ✍️ Seção criada por: *Fabio Zanneti* - 🎯 Bootcamp: **WEX - End to End Engineering**
 [![GitHub](https://img.shields.io/badge/GitHub-fzanneti-181717?style=flat&logo=github)](https://github.com/fzanneti)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-fzanneti-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/fzanneti)

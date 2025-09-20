@@ -1,4 +1,6 @@
-# 🤖 JarbasBot
+# WEX - End to End Engineering
+
+## JarbasBot
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/fzanneti/wex-e2e-csharp)
 ![GitHub forks](https://img.shields.io/github/forks/fzanneti/wex-e2e-csharp?style=social)
@@ -11,7 +13,7 @@
 
 ---
 
-### 📌 Sobre o Projeto
+### Sobre o Projeto
 
 O **JarbasBot** é um projeto de chatbot que simula uma personalidade extrovertida e direta, utilizando a API da [OpenRouter.ai](https://openrouter.ai) com modelos LLM gratuitos como o `mistralai/mistral-small`, `meta-llama/llama-4-maverick` e outros.
 
@@ -19,7 +21,7 @@ Projeto desenvolvido como parte do Desafio WEX / DIO - Docker Compose Challenge,
 
 ---
 
-### 📌 Descrição
+### Descrição
 
 O projeto foi idealizado para demonstrar o uso do Docker Compose, servindo:
 
@@ -30,7 +32,7 @@ Para fins de desafio acadêmico, foi incluído um container **Apache HTTP Server
 
 ---
 
-### 🚀 Tecnologias
+### Tecnologias
 
 - Docker & Docker Compose    
 - Apache HTTP Server (local)     
@@ -40,9 +42,9 @@ Para fins de desafio acadêmico, foi incluído um container **Apache HTTP Server
 
 ---
 
-## 🐳 Execução Local com Docker Compose
+### Execução Local com Docker Compose
 
-### Pré-requisitos:
+**Pré-requisitos:**
 
 - Docker instalado     
 - Docker Compose instalado    
@@ -63,8 +65,8 @@ Arquivo .env configurado com:
 
 ```bash
 
-git clone https://github.com/fzanneti/wex-dockercompose-challenge.git
-cd wex-dockercompose-challenge
+git clone https://github.com/fzanneti/DIO-wex-dockercompose-challenge.git
+cd DIO-wex-dockercompose-challenge
 
 ```
 
