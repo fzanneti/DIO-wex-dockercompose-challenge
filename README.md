@@ -13,7 +13,7 @@
 
 ---
 
-<img src="https://github.com/fzanneti/DIO-wex-dockercompose-challenge/blob/main/Assets/images/bot.jpg" alt="Docker Compose" width="600px">
+<img src="https://github.com/fzanneti/DIO-wex-dockercompose-challenge/blob/main/Assets/images/bot.jpg" alt="Bot" width="600px">
 
 ### Sobre o Projeto
 
