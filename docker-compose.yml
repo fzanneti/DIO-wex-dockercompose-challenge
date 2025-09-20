@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build: ./Bot/backend
     ports:
       - "5000:80"
     environment:
       - OPENAI_API_KEY=YOUR_API_KEY
 
   frontend:
-    build: ./frontend
+    build: ./Bot/frontend
     ports:
       - "8080:80"
