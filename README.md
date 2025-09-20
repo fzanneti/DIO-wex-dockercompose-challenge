@@ -103,7 +103,7 @@ Para a produção no Railway, utilizei uma abordagem diferente da proposta origi
 
 ### URL de Produção
 
-<img src="https://github.com/fzanneti/wex-dockercompose-challenge/blob/main/assets/images/Project-Jarbas-Bot.gif" width="800px">
+<img src="https://github.com/fzanneti/wex-dockercompose-challenge/blob/main/Assets/images/Project-Jarbas-Bot.gif" width="800px">
 
 🔗[Acesse](https://wex-dockercompose-challenge-production.up.railway.app)
 
