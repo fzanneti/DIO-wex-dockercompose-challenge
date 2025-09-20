@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8UOFX0oTARM=",
+  "dgSpecHash": "gwcQAf4JnNo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\fzann\\OneDrive\\Documentos\\Projects\\wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
+  "projectFilePath": "C:\\Users\\fzann\\OneDrive\\Documentos\\Projects\\DIO-wex-dockercompose-challenge\\Bot\\JarbasBot\\JarbasBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fzann\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.18\\microsoft.aspnetcore.openapi.8.0.18.nupkg.sha512",
     "C:\\Users\\fzann\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
