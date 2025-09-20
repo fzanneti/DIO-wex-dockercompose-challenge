@@ -98,8 +98,9 @@ Para a produção no Railway, utilizei uma abordagem diferente da proposta origi
 - O **Frontend (HTML/CSS/JS)** foi incorporado diretamente na aplicação ASP.NET Core, servido a partir da pasta wwwroot.
 - O **Apache** não foi utilizado no deploy do Railway, pois o Railway não suporta múltiplos containers em um único serviço.
 
-
 > Observação: Essa adaptação foi necessária para possibilitar a publicação funcional do projeto em ambiente de produção na nuvem, respeitando as limitações da plataforma Railway.
+
+---
 
 ### URL de Produção
 
