@@ -13,6 +13,8 @@
 
 ---
 
+<img src="https://github.com/fzanneti/DIO-wex-dockercompose-challenge/blob/main/Assets/images/bot.jpg" alt="Docker Compose" width="600px">
+
 ### Sobre o Projeto
 
 O **JarbasBot** é um projeto de chatbot que simula uma personalidade extrovertida e direta, utilizando a API da [OpenRouter.ai](https://openrouter.ai) com modelos LLM gratuitos como o `mistralai/mistral-small`, `meta-llama/llama-4-maverick` e outros.
@@ -103,15 +105,15 @@ Para a produção no Railway, utilizei uma abordagem diferente da proposta origi
 
 <img src="https://github.com/fzanneti/wex-dockercompose-challenge/blob/main/assets/images/Project-Jarbas-Bot.gif" width="800px">
 
-[Acesse](https://wex-dockercompose-challenge-production.up.railway.app)
+🔗[Acesse](https://wex-dockercompose-challenge-production.up.railway.app)
 
 ---
 
-*** 🔗 Funcionalidades
+### Funcionalidades
 
 Envie perguntas pelo frontend e o JarbasBot responde com bom humor, informalidade e integração com IA.
 
-### API RESTful com endpoint:
+**API RESTful com endpoint:**
 
 ```bash
 
@@ -124,6 +126,6 @@ POST /api/chat
 
 ---
 
-##### ✍️ Criado com ❤️ por: Fabio Zanneti - 🎯 Projeto: WEX - End to End Engineering
+##### ✍️ Seção criada por: *Fabio Zanneti* - 🎯 Bootcamp: **WEX - End to End Engineering**
 [![GitHub](https://img.shields.io/badge/GitHub-fzanneti-181717?style=flat&logo=github)](https://github.com/fzanneti)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-fzanneti-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/fzanneti)
