@@ -9,8 +9,7 @@ async function falarComJarbas() {
 
   respostaEl.innerText = "Jarbas está pensando...";
 
-  // URL fixa pro Railway
-  const apiUrl = "https://wex-dockercompose-challenge-production.up.railway.app/api/chat";
+  const apiUrl = "http://localhost:5000/api/chat";
 
   try {
     const res = await fetch(apiUrl, {
