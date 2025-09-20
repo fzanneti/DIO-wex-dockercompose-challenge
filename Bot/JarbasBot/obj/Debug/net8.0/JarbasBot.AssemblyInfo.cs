@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JarbasBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7d69087c0abcb5d1c73a624ee99c4560683730a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2590becd62ef0e9ed91244114dbc6028a7081d55")]
 [assembly: System.Reflection.AssemblyProductAttribute("JarbasBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JarbasBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
