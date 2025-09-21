@@ -4,28 +4,33 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace JarbasBot.Services
 {
-    public class OpenAiService : IDisposable
+    public class OpenRouterService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
-        private bool _disposed;
 
-        public OpenAiService()
+        public OpenRouterService(HttpClient httpClient, IConfiguration config)
         {
-            _httpClient = new HttpClient
-            {
-                Timeout = TimeSpan.FromSeconds(30)
-            };
+            _httpClient = httpClient;
 
-            _apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
-                ?? throw new InvalidOperationException("Chave da API OpenAI não foi encontrada.");
+            _apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY")
+                ?? throw new InvalidOperationException("Chave da API OpenRouter não foi encontrada.");
 
-            // Headers fixos para OpenRouter
-            _httpClient.DefaultRequestHeaders.Add("HTTP-Referer", "https://localhost");
-            _httpClient.DefaultRequestHeaders.Add("X-Title", "JarbasBot");
+            _httpClient.Timeout = TimeSpan.FromSeconds(30);
+
+            // Headers fixos do OpenRouter
+            if (!_httpClient.DefaultRequestHeaders.Contains("HTTP-Referer"))
+                _httpClient.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost:8080");
+
+            if (!_httpClient.DefaultRequestHeaders.Contains("X-Title"))
+                _httpClient.DefaultRequestHeaders.Add("X-Title", "JarbasBot");
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", _apiKey);
         }
 
         public async Task<string> AskJarbas(string pergunta)
@@ -38,11 +43,11 @@ namespace JarbasBot.Services
                 model = "mistralai/mistral-small-3.2-24b-instruct:free",
                 messages = new[]
                 {
-                        new
-                        {
-                            role = "user",
-                                content = $"Você é o Jarbas, um assistente informal e carismático que fala com gírias e bom humor. Sempre responde como um amigo experiente e direto.\n\n{pergunta}"
-                        }
+                    new
+                    {
+                        role = "user",
+                        content = $"Você é o Jarbas, um assistente informal e carismático que fala com gírias e bom humor. Sempre responde como um amigo experiente e direto.\n\n{pergunta}"
+                    }
                 },
                 max_tokens = 1000,
                 temperature = 0.7
@@ -59,16 +64,12 @@ namespace JarbasBot.Services
 
             try
             {
-                var request = new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions");
-                request.Content = content;
-             
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+                var response = await _httpClient.PostAsync("https://openrouter.ai/api/v1/chat/completions", content);
 
-                using var response = await _httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                using JsonDocument json = JsonDocument.Parse(responseString);
+                using var json = JsonDocument.Parse(responseString);
 
                 if (json.RootElement.TryGetProperty("choices", out var choices) &&
                     choices.GetArrayLength() > 0 &&
@@ -91,15 +92,6 @@ namespace JarbasBot.Services
             catch (Exception ex)
             {
                 return $"Eita, algo deu ruim: {ex.Message}";
-            }
-        }
-
-        public void Dispose()
-        {
-            if (!_disposed)
-            {
-                _httpClient?.Dispose();
-                _disposed = true;
             }
         }
     }

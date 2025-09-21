@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using JarbasBot.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuração de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -17,13 +20,19 @@ builder.Services.AddCors(options =>
 
 // Adiciona serviços ao container
 builder.Services.AddControllers();
+builder.Services.AddHttpClient<OpenRouterService>();
+builder.Services.AddSingleton<OpenRouterService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Injeta o serviço do Jarbas
-builder.Services.AddSingleton<OpenAiService>();
-
 var app = builder.Build();
+
+// Endpoint de chat
+app.MapPost("/chat", async (OpenRouterService ai, [FromBody] string prompt) =>
+{
+    var reply = await ai.AskJarbas(prompt);
+    return Results.Ok(new { response = reply });
+});
 
 app.UseCors("AllowAll");
 
@@ -34,11 +43,10 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI();
 }
 
-// HTTPS é desativado porque estamos rodando via Docker sem certificado
-// app.UseHttpsRedirection(); ❌ (não necessário se usando apenas HTTP)
-
-app.UseDefaultFiles();  // Serve index.html automaticamente na raiz
-app.UseStaticFiles();   // Permite servir arquivos estáticos (JS, CSS)
+// Endpoint de teste
+app.MapGet("/hello", () => new { Message = "Olá Fabio, o backend está funcionando 🚀" });
+app.UseDefaultFiles();   // Serve index.html automaticamente
+app.UseStaticFiles();    // Permite servir arquivos estáticos (JS, CSS)
 app.UseAuthorization();
-app.MapControllers(); // ESSENCIAL para rotas como /api/chat
+app.MapControllers();
 app.Run();

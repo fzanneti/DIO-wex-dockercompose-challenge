@@ -9,19 +9,20 @@ async function falarComJarbas() {
 
   respostaEl.innerText = "Jarbas está pensando...";
 
-  const apiUrl = "http://${host}:80/api/chat";
+  // URL do backend dentro do Docker
+  const apiUrl = "http://localhost:8080/chat";
 
   try {
     const res = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: pergunta })
+      body: JSON.stringify(pergunta) // manda só a string
     });
 
     if (!res.ok) throw new Error("Erro na resposta da API");
 
     const data = await res.json();
-    respostaEl.innerText = marked.parse(data.answer);
+    respostaEl.innerHTML = marked.parse(data.response); // response, não answer
   } catch (err) {
     console.error("Erro ao falar com o Jarbas:", err);
     respostaEl.innerText = "Deu ruim... o Jarbas não respondeu 😢";
