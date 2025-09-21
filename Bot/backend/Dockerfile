@@ -13,5 +13,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /out .
 
-ENV ASPNETCORE_URLS=http://+:80
+# Porta dinâmica para Railway
+ENV ASPNETCORE_URLS=http://+:${PORT:-8080}
+EXPOSE ${PORT:-8080}
+
 ENTRYPOINT ["dotnet", "JarbasBot.dll"]
