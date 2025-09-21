@@ -14,7 +14,8 @@ WORKDIR /app
 COPY --from=build /out .
 
 # Porta dinâmica para Railway
-ENV ASPNETCORE_URLS=http://+:${PORT:-8080}
-EXPOSE ${PORT:-8080}
+ENV PORT=8080
+ENV ASPNETCORE_URLS=http://+:${PORT}
+EXPOSE ${PORT}
 
 ENTRYPOINT ["dotnet", "JarbasBot.dll"]
